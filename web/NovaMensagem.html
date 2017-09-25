@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Nova Mensagem</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            p{
+                font-family: "Verdana"
+            }
+        </style>
+    </head>
+    <body>
+    <center>
+        <h1>Mini Forum - Nova Mensagem</h1>
+        <form action="forum/gravar" method="POST">
+            <table>
+                <tr>
+                    <td>Mensagem:</td>
+                    <td><input type="text" name="mensagem"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" name="email"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit"></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+    </body>
+</html>
