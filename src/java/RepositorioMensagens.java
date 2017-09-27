@@ -29,7 +29,7 @@ public class RepositorioMensagens {
     
     public static ArrayList<Mensagem> recuperaMensagens(ServletContext ctx)
     {
-        ArrayList<Mensagem> listaMensagens = new ArrayList<>();
+        /*ArrayList<Mensagem> listaMensagens = new ArrayList<>();
         String arq = "/WEB-INF/mensagens.txt";
         InputStream stream = ctx.getResourceAsStream(arq);
         InputStreamReader reader = new InputStreamReader(stream);
@@ -49,20 +49,20 @@ public class RepositorioMensagens {
             return null;
         }
         
-        return listaMensagens;
-        /*ArrayList<Mensagem> listaMensagens = null;
+        return listaMensagens;*/
+        ArrayList<Mensagem> listaMensagens = null;
 
-        listaMensagens  = (ArrayList<Mensagem>) req.getAttribute("mensagens");
+        listaMensagens  = (ArrayList<Mensagem>) ctx.getAttribute("mensagens");
         if (listaMensagens == null)
         {
             listaMensagens = new ArrayList<>();
-            req.setAttribute("mensagens",listaMensagens);
+            ctx.setAttribute("mensagens",listaMensagens);
         }
-        return listaMensagens;*/
+        return listaMensagens;
     }
     public static void salvaMensagens(ServletContext ctx,Mensagem msg)
     {
-        String arq = "/WEB-INF/mensagens.txt";
+        /*String arq = "/WEB-INF/mensagens.txt";
         arq = ctx.getRealPath(arq);
         
         File f = new File(arq);
@@ -73,16 +73,15 @@ public class RepositorioMensagens {
             fos.close();
         } catch (Exception ex) {
             Logger.getLogger(RepositorioMensagens.class.getName()).log(Level.SEVERE, null, ex);  
-        }
+        }*/
         
-        /*ArrayList<Mensagem> listaMensagens = null;
-            listaMensagens  = (ArrayList<Mensagem>) req.getAttribute("mensagens");
+        ArrayList<Mensagem> listaMensagens = null;
+            listaMensagens  = (ArrayList<Mensagem>) ctx.getAttribute("mensagens");
             if (listaMensagens == null)
             {
-            listaMensagens = new ArrayList<>();
-           
+                listaMensagens = new ArrayList<>();
             }
             listaMensagens.add(msg);
-            req.setAttribute("mensagens",listaMensagens);*/
+            ctx.setAttribute("mensagens",listaMensagens);
     }
 }

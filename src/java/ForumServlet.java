@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-@WebServlet(urlPatterns = {"/forum/gravar"})
+@WebServlet(urlPatterns = {"/forum/*"})
 public class ForumServlet extends HttpServlet {
     
     private ArrayList<Mensagem> mensagens;
@@ -82,7 +82,7 @@ public class ForumServlet extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<style>" +
-                "table {\n" +
+                ".tableForum {\n" +
                 "border-collapse: collapse;\n" +
                 "width: 100%;\n" +
                 "}th, td {" +
@@ -93,10 +93,10 @@ public class ForumServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<center><h1><font face=\"verdana\">MiniForum | ACESSOS: "+acessos+"</h1>");
-            out.println("<form action=\"\" method=\"POST\">");
+            out.println("<form action=\"\\miniforum\\LogoutServlet\" method=\"POST\">");
             out.println("<input type=\"submit\" value=\"LOGOUT\">");
             out.println("</form>");
-            out.println("<br><br><table>");
+            out.println("<br><br><table class=\"tableForum\">");
             out.println("<tr>");
             out.println("<td><b>E-MAIL</b></td>");
             out.println("<td><b>MENSAGEM</b></td>");
@@ -109,6 +109,23 @@ public class ForumServlet extends HttpServlet {
                 out.println("</tr>");
             }
             out.println("</table>");
+            out.println("<h2>Responder:</h2>");
+            out.println("<form action=\"gravar\" method=\"POST\">\n" +
+            "            <table>\n" +
+            "                <tr>\n" +
+            "                    <td>Mensagem:</td>\n" +
+            "                    <td><input type=\"text\" name=\"mensagem\"></td>\n" +
+            "                </tr>\n" +
+            "                <tr>\n" +
+            "                    <td>Email:</td>\n" +
+            "                    <td><input type=\"text\" name=\"email\"></td>\n" +
+            "                </tr>\n" +
+            "                <tr>\n" +
+            "                    <td><input type=\"submit\"></td>\n" +
+            "                <td></td></tr>\n" +
+            "            </table>\n" +
+            "        </form>");
+            
             out.println("</center></font></body>");
             out.println("</html>");
         }
